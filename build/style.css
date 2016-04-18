@@ -1,0 +1,164 @@
+body {
+  max-width: 1000px;
+  padding: 10px;
+  font-family: 'Oxygen', sans-serif;
+}
+
+#side-bar {
+  width: 30%;
+  float: left;
+}
+
+#main-content {
+  width: 70%;
+  float: right;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul span {
+  display: block;
+  font-size: 16px;
+}
+
+aside {
+  padding: 15px;
+  border: solid 1px #9F9F9F;
+}
+
+aside h1 {
+  margin-bottom: 5px;
+}
+
+aside small {
+  font-size: 18px;
+
+}
+
+aside i {
+  text-align: center;
+  width: 20px;
+}
+
+aside li {
+  display: inline-block;
+  text-align: center;
+  font-size: 25px;
+  width: 32%;
+  padding: 0;
+  margin: 0;
+}
+
+aside span {
+  padding: 0;
+  margin: 0;
+}
+
+aside a {
+  text-decoration: none;
+  color: black;
+}
+
+nav {
+  position: relative;
+  border-top: solid 1px #9F9F9F;
+  border-right: solid 1px #9F9F9F;
+  border-left: solid 1px #9F9F9F;
+  border-bottom: solid 1px #9F9F9F;
+  margin: 0 25px;
+  -webkit-box-shadow: 0 3px 3px rgba(0,0,0,.1);
+  font-size: 20px;
+
+}
+
+nav a {
+  text-decoration: none;
+  color: blue;
+}
+
+nav ul {
+  padding-left: 35px;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+section {
+  margin: 0 25px;
+  overflow-y: scroll;
+  max-height: 500px;
+  padding: 0;
+  border-right: solid 1px #C0C0C0;
+  border-bottom: solid 1px #C0C0C0;
+}
+
+section ul {
+  margin: 0;
+}
+
+section li {
+  background-color: #DDECFF;
+  padding-left: 35px;
+  margin-bottom: 3px;
+  border: solid 1px #C0C0C0;
+}
+
+section li:last-child {
+  margin-bottom: -1px;
+}
+
+section li a {
+  text-decoration: none;
+}
+
+.repos h4,
+.starred h4 {
+  margin-bottom: 0;
+}
+
+li h5 {
+  margin-top: 5px;
+  color: #6E6E6E;
+}
+
+section span {
+  font-size: 14px;
+  color: gray;
+}
+
+.follow li:first-child {
+  margin-bottom: 0;
+  background-color: #DFDFDF;
+}
+
+.followers {
+  width: 49%;
+  padding-right: 1%;
+  float: left;
+}
+
+.following {
+  width: 49%;
+  padding-left: 1%;
+  float: right;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    border: solid 1px #898989;
+    background-color: #F0F0F0;
+    -webkit-box-shadow: 0 2px 5px rgba(0,0,0,.5);
+}
+
+.active {
+  text-decoration: underline;
+}

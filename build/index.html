@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html data-ng-app="githubApp" data-ng-controller="AppCtrl as app">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/style.css" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <title>GitHub API</title>
+  </head>
+  <body data-ng-controller="TabCtrl as tab"
+    data-ng-init="app.getProfile(); app.getStarred(); app.getRepositories(); app.getFollowers(); app.getFollowing()">
+    <div id="side-bar">
+      <aside>
+        <img data-ng-src="{{app.profile.avatar_url}}"/>
+        <h1>{{app.profile.name}}</h1>
+        <small>{{app.profile.login}}</small>
+        <h3><i class="fa fa-map-marker" aria-hidden="true"></i> {{app.profile.location}}</h3>
+        <h3><i class="fa fa-clock-o" aria-hidden="true"></i> Joined on {{app.profile.created_at | date}}</h3>
+        <ul>
+          <li><a href data-ng-click="tab.setTab(2)">{{app.profile.followers}}<span>Followers</span></a></li>
+          <li><a href data-ng-click="tab.setTab(3)">{{app.starred.length}}<span>Starred</span></a></li>
+          <li><a href data-ng-click="tab.setTab(2)">{{app.profile.following}}<span>Following</span></a></li>
+        </ul>
+      </aside>
+    </div>
+    <div id="main-content">
+      <nav>
+        <ul>
+          <li data-ng-class="{active:tab.isSet(1)}"><a href data-ng-click="tab.setTab(1)">Repositories</a></li>
+          <li data-ng-class="{active:tab.isSet(2)}"><a href data-ng-click="tab.setTab(2)">Followers/Following</a></li>
+          <li data-ng-class="{active:tab.isSet(3)}"><a href data-ng-click="tab.setTab(3)">Starred</a></li>
+        </ul>
+      </nav>
+      <main>
+        <section class="repos" data-ng-show="tab.isSet(1)">
+          <ul>
+            <li data-ng-repeat="repo in app.repos">
+              <h4><a href="{{repo.html_url}}">{{repo.name}}</a></h4>
+              <span>last updated: {{repo.updated_at | date}}</span>
+              <h5>{{repo.description}}</h5></li>
+          </ul>
+        </section>
+        <section class="follow" data-ng-show="tab.isSet(2)">
+          <div class="followers">
+            <ul>
+              <li><h3>Followers</h3></li>
+              <li data-ng-repeat="follower in app.followers">
+                <h4><a href="{{follower.html_url}}">{{follower.login}}</a></h4>
+              </li>
+            </ul>
+          </div>
+          <div class="following">
+            <ul>
+              <li><h3>Following</h3></li>
+              <li data-ng-repeat="user in app.following">
+                <h4><a href="{{user.html_url}}">{{user.login}}</a></h4>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section class="starred" data-ng-show="tab.isSet(3)">
+          <ul>
+            <li data-ng-repeat="repo in app.starred">
+              <h4><a href="{{repo.html_url}}">{{repo.name}}</a></h4>
+              <span>last updated: {{repo.updated_at | date}}</span>
+              <h5>{{repo.description}}</h5>
+            </li>
+          </ul>
+        </section>
+      </main>
+    </div>
+
+  <script src="./angular/angular.js"></script>
+  <script src="app.js"></script>
+  </body>
+</html>
